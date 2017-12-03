@@ -5,8 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SliceApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="Slice" >
+    <Grid x:Name="LayoutGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="477*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="599*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Menu -->
+        <DockPanel Grid.Column="0" Grid.Row="0">
+            <Menu DockPanel.Dock="Top" >
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Open" Click="OpenMenuItem_Click"/>
+                    <Separator></Separator>
+                    <MenuItem Header="_Quit"/>
+                </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem Header="_view Help" Click="OpenMenuItem_Click"/>
+                    <MenuItem Header="About"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <!-- Imagework area -->
+        <ScrollViewer x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Column="1" Grid.Row="1">
+            <Grid x:Name="VisualGrid" ShowGridLines="True" >
+
+                <!-- <Image x:Name="SlicableImage" /> -->
+                <!-- <Canvas x:Name="GridCanvas"   /> -->
+
+            </Grid>
+
+        </ScrollViewer>
+
+        <!-- Sidebar -->
+        <DockPanel Grid.Row="1" Grid.Column="0">
+            <Label x:Name="Widthlabel" Content="Width"  DockPanel.Dock="Top" VerticalAlignment="Top" />
+            <TextBox x:Name="WidthTextBox" DockPanel.Dock="Top" VerticalAlignment="Top" TextChanged="WidthTextBox_TextChanged"  />
+            <Label x:Name="HeightLabel" Content="Height" DockPanel.Dock="Top"  VerticalAlignment="Top" />
+            <TextBox x:Name="HeightTextBox" DockPanel.Dock="Top" VerticalAlignment="Top" TextChanged="HeightTextBox_TextChanged" />
+            <Button x:Name="SliceButton" Click="SliceButton_Click"  VerticalAlignment="Center" Content="Slice"/>
+            
+        </DockPanel>
+        <TextBox Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" ></TextBox>
+
     </Grid>
 </Window>
