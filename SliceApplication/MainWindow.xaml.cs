@@ -65,7 +65,6 @@ namespace SliceApplication
                 {
                     MessageBox.Show(ex.Message);
                 }
-                
             }
         }
 
@@ -78,18 +77,19 @@ namespace SliceApplication
         {
             if (gridRenderer != null)
             {
-                gridRenderer.drawGrid(VisualGrid);
+                
             }
 
         }
 
         private void WidthTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (gridRenderer != null && String.IsNullOrEmpty(WidthTextBox.Text))
+            
+            if (gridRenderer != null && !String.IsNullOrEmpty(WidthTextBox.Text))
             {
-                
-                gridRenderer.CellWidth = int.Parse(WidthTextBox.Text);
-                gridRenderer.drawGrid(VisualGrid);
+                    gridRenderer.CellWidth = int.Parse(WidthTextBox.Text);
+                    gridRenderer.drawGrid(VisualGrid);
+
             }
         }
 
@@ -97,9 +97,27 @@ namespace SliceApplication
         {
             if (gridRenderer != null && !String.IsNullOrEmpty(HeightTextBox.Text))
             {
-                gridRenderer.CellHeight = int.Parse(HeightTextBox.Text);
-                gridRenderer.drawGrid(VisualGrid);
+                    gridRenderer.CellHeight = int.Parse(HeightTextBox.Text);
+                    gridRenderer.drawGrid(VisualGrid);
+
             }
+        }
+
+
+
+        private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AboutPopup.IsOpen = true;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PopupButton_Click(object sender, RoutedEventArgs e)
+        {
+            AboutPopup.IsOpen = false;
         }
     }
 }

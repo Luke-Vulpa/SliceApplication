@@ -16,7 +16,19 @@
             <ColumnDefinition Width="599*"/>
         </Grid.ColumnDefinitions>
 
+        <!-- About Popup -->
+        
+        <Popup x:Name="AboutPopup" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,20,20,20" PlacementTarget="{Binding ElementName=MainPanel}" Placement="Center">
+            <StackPanel Background="White" >
+                <TextBlock Padding="20">Hey I'm Luke, I made this software. Thank you so much for trying it out! If it was of any value to you please consider <Hyperlink>donating</Hyperlink></TextBlock>
+
+                <Image Source="profile.jpg"/>
+                <TextBlock TextAlignment="Center">2017  - <Hyperlink>subvulpa.net</Hyperlink></TextBlock>
+                <Button x:Name="PopupButton" Click="PopupButton_Click" Content="Ok" Margin="10"/>
+            </StackPanel>
+        </Popup>
         <!-- Menu -->
+
         <DockPanel Grid.Column="0" Grid.Row="0">
             <Menu DockPanel.Dock="Top" >
                 <MenuItem Header="_File">
@@ -24,9 +36,14 @@
                     <Separator></Separator>
                     <MenuItem Header="_Quit"/>
                 </MenuItem>
+
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="Preferences..." Click="PreferencesMenuItem_Click"/>
+                </MenuItem>
+
                 <MenuItem Header="_Help">
                     <MenuItem Header="_view Help" Click="OpenMenuItem_Click"/>
-                    <MenuItem Header="About"/>
+                    <MenuItem Header="About" Click="AboutMenuItem_Click" />
                 </MenuItem>
             </Menu>
         </DockPanel>
@@ -43,15 +60,16 @@
         </ScrollViewer>
 
         <!-- Sidebar -->
-        <DockPanel Grid.Row="1" Grid.Column="0">
+        <DockPanel Grid.Row="1" Grid.Column="0" Margin="10">
             <Label x:Name="Widthlabel" Content="Width"  DockPanel.Dock="Top" VerticalAlignment="Top" />
             <TextBox x:Name="WidthTextBox" DockPanel.Dock="Top" VerticalAlignment="Top" TextChanged="WidthTextBox_TextChanged"  />
             <Label x:Name="HeightLabel" Content="Height" DockPanel.Dock="Top"  VerticalAlignment="Top" />
             <TextBox x:Name="HeightTextBox" DockPanel.Dock="Top" VerticalAlignment="Top" TextChanged="HeightTextBox_TextChanged" />
             <Button x:Name="SliceButton" Click="SliceButton_Click"  VerticalAlignment="Center" Content="Slice"/>
-            
+
         </DockPanel>
         <TextBox Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" ></TextBox>
 
     </Grid>
+
 </Window>

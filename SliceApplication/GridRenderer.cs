@@ -37,7 +37,10 @@ namespace SliceApplication
         /// <summary>
         /// What do I need to do next?
         /// </summary>
-
+        public override string ToString()
+        {
+            return String.Format("Image Width:{0} Image Height:{1} Cell CellWidth:{2} Cell Height:{3}", ImageWidth, ImageHeight, CellWidth, CellHeight);
+        }
 
         public int CellWidth
         {
@@ -66,38 +69,41 @@ namespace SliceApplication
 
         public void drawGrid(Grid aGrid)
         {
-            
-            // cell > 0 is to catch edge case from trying to render while Height and Width Textboxes are empty
+            aGrid.ColumnDefinitions.Clear();
+            drawColumns(aGrid);
+
+            aGrid.RowDefinitions.Clear();
+            drawRows(aGrid);
+        }
+
+        private void drawColumns(Grid aGrid)
+        {
             if (CellWidth > 0)
             {
-                
                 for (var y = 0; y < ImageWidth; y += CellWidth)
                 {
-                    
+
                     ColumnDefinition col = new ColumnDefinition();
                     col.Width = new GridLength(CellWidth, GridUnitType.Pixel);
                     aGrid.ColumnDefinitions.Add(col);
                 }
-                aGrid.ColumnDefinitions.Clear();
             }
+        }
+
+        private void drawRows(Grid aGrid)
+        {
             if (CellHeight > 0)
             {
-                
                 for (var x = 0; x < ImageHeight; x += CellHeight)
                 {
-                    
+
                     RowDefinition row = new RowDefinition();
                     row.Height = new GridLength(CellHeight, GridUnitType.Pixel);
                     aGrid.RowDefinitions.Add(row);
                 }
-                aGrid.RowDefinitions.Clear();
             }
         }
 
-        public override string ToString()
-        {
-            return String.Format("Image CellWidth:{0}/n Image Height:{1}/n Cell CellWidth:{2}/n Cell Height:{3}",ImageWidth,ImageHeight,CellWidth,CellHeight);
-        }
 
 
     }
