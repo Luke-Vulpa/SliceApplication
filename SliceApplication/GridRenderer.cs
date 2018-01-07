@@ -30,6 +30,8 @@ namespace SliceApplication
             _cellHeight = cellHeight;
             _imageWidth = imageWidth;
             _imageHeight = imageHeight;
+
+
             //gridImage = new WriteableBitmap(width, height, 96, 96, PixelFormats.Bgra32, null);
             //pixels = new uint[Convert.ToInt32(width) * Convert.ToInt32(height)];
         }
@@ -80,7 +82,7 @@ namespace SliceApplication
         {
             if (CellWidth > 0)
             {
-                for (var y = 0; y < ImageWidth; y += CellWidth)
+                for (var y = 0; y < ImageWidth; y += CellWidth + 1)
                 {
 
                     ColumnDefinition col = new ColumnDefinition();
@@ -94,7 +96,7 @@ namespace SliceApplication
         {
             if (CellHeight > 0)
             {
-                for (var x = 0; x < ImageHeight; x += CellHeight)
+                for (var x = 0; x < ImageHeight; x += CellHeight + 1)
                 {
 
                     RowDefinition row = new RowDefinition();

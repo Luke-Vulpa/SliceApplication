@@ -1,0 +1,30 @@
+﻿<Window x:Class="SliceApplication.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:SliceApplication.Properties"
+        mc:Ignorable="d"
+        Title="About" Height="437.5" Width="300">
+    <Grid x:Name="Layout">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Background="White" Grid.Row="1" Grid.Column="1">
+            <TextBlock FontSize="34" Text="{Binding Source=Version}" />
+            <TextBlock TextWrapping="Wrap"><Run Text="Hey I'm Luke, I made this software. Thank you so much for trying it out! If it was of any value to you please consider "/><Hyperlink><Run Text="donating "/></Hyperlink><Run Text="Or Bitcoin: "/><LineBreak /></TextBlock>
+            <TextBox Text="18K453PYP8jgLnW5j3cx7tEcz5b5xzEbdW" />
+            <Image Source="profile.jpg" />
+            <TextBlock><Run Text="2017 - "/><Hyperlink NavigateUri="https://http://subvulpa.net/"><Run Text="subvulpa.net" /></Hyperlink></TextBlock>
+        </StackPanel>
+
+    </Grid>
+</Window>
